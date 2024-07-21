@@ -116,7 +116,7 @@ Password: password
 ````
 - Cambia estas credenciales una vez que Airbyte esté desplegado en un entorno de producción.
 
-### 6. Configurar la Base de Datos PostgreSQL
+### 7. Configurar la Base de Datos PostgreSQL
 - Inicia los contenedores definidos en docker-compose.yml:
 ```
 docker-compose up -d
@@ -133,23 +133,23 @@ python src.scripts.initialize_postgres
   - **initialize_postgres.py:** Script para inicializar la base de datos PostgreSQL.
   - **sync_airbyte.py:** Script para sincronizar datos utilizando Airbyte.
 
-### 7. Dependencias
+### 8. Dependencias
 - Instala las dependencias de Python usando pip:
 
 ```
 pip install -r requirements.txt
 ```
 
-### 8. Configurar Conexión en Airbyte
+### 9. Configurar Conexión en Airbyte
 - Desde la interfaz de usuario de Airbyte (http://localhost:8000), configura una conexión a tu base de datos PostgreSQL.
 
-### 9. Confirmar la Conexión con PostgreSQL
+### 10. Confirmar la Conexión con PostgreSQL
 - Ejecuta el script connection_test.py desde PyCharm o tu terminal para confirmar la conexión con PostgreSQL:
 ```
 python -m src.scripts.connection_test
 ```
 
-### 10. Obtener el ID de Workspace y Connection UUID
+### 11. Obtener el ID de Workspace y Connection UUID
 - Ejecuta el script get_workspace_id.py para obtener el ID del Workspace:
 ```
 python -m src.scripts.get_workspace_id
@@ -160,10 +160,10 @@ python -m src.scripts.get_workspace_id
 python -m src.scripts.get_connection_UUID
 ```
 
-### 11. Configurar el Connection UUID en employee_service.py
+### 12. Configurar el Connection UUID en employee_service.py
 - Abre src/services/employee_service.py y actualiza la variable CONNECTION_ID con el UUID de la conexión obtenida.
 
-### 12. Ejecutar el Script Principal
+### 13. Ejecutar el Script Principal
 - Finalmente, ejecuta el script principal para realizar inserciones, modificaciones y eliminaciones en la tabla de empleados, y sincronizar automáticamente con Airbyte:
 ```
 python -m src.main.main
